@@ -12,7 +12,7 @@ export class KnexService {
    } 
 
    return this.conn;
+}
 
-  }
 }
 
