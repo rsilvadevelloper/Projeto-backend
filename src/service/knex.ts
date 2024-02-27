@@ -1,17 +1,17 @@
-import knex { Knex } from 'knex';
+import knex, {Knex} from 'knex';
 import knexConfig from '../config/knex';
 
 export class KnexService {
-  private static conn: knex;
+  private conn: Knex;
 
   obterConexao = () => {
-   if (KnexService.conn) {
+   if (!this.conn) {
      
-    KnexService.conn knex (knexConfig);
+    this.conn = knex(knexConfig);
 
    } 
 
-   return KnexService.conn;
+   return this.conn;
 
   }
 }
