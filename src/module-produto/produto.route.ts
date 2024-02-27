@@ -9,10 +9,11 @@ router.get('/', async (_, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const data = await produtoModel.store(req.body);
+  const data = await produtoFactory.store(req.body);
   return res.status(200).json({ data });
-});
+
 
 export default router;
 
-module.exports = router;
+});
+

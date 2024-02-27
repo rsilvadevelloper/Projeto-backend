@@ -1,15 +1,18 @@
-const knex = require('knex');
-const knexConfig = require('../config/knex');
+import knex { Knex } from 'knex';
+import knexConfig from '../config/knex';
 
-let conn;
+export class KnexService {
+  private static conn: knex;
 
-function conectar() {
-  if (conn) {
-    return conn;
+  obterConexao = () => {
+   if (KnexService.conn) {
+     
+    KnexService.conn knex (knexConfig);
+
+   } 
+
+   return KnexService.conn;
+
   }
-
-  conn = knex(knexConfig);
-  return conn;
 }
 
-module.exports = conectar();
